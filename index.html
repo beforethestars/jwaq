@@ -9,30 +9,327 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 
     <style>
+        /* --- 1. CÀI ĐẶT CHUNG (RESET) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            /* đổi font */
             font-family: 'DotGothic16', sans-serif;
-            background-color: #f0f2f5;
+            background-color: #f7e6f3; 
+            color: #000000;
+            padding-bottom: 50px;
+        }
+
+        /* --- 2. THANH THÔNG BÁO Y2K --- */
+        .announcement-bar {
+            background-color: #df9be4;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #000000;
+        }
+        .announcement-left { display: flex; gap: 20px; }
+        .highlight { color: #d600b3; text-decoration: underline; }
+        .retro-btn { background: #e0e0e0; border: 2px solid #000000; padding: 1px 5px; font-weight: bold; cursor: pointer; }
+
+        /* --- 3. TIÊU ĐỀ CHÍNH --- */
+        .header-logo {
             text-align: center;
-            padding-top: 50px;
+            padding: 30px 10px;
+            font-size: 32px;
+            text-shadow: 2px 2px 0px #df9be4;
         }
-        .card {
-            background: white;
-            max-width: 400px;
+
+        /* --- 4. BỐ CỤC CHÍNH (GRID LAYOUT) --- */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr 320px; 
+            gap: 20px;
         }
-        h1 { color: #000000; }
-        p { color: #57606f; }
+
+        @media (max-width: 950px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        /* --- 5. CODE TẠO Ô CỬA SỔ MÁY TÍNH RETRO --- */
+        .window {
+            background: #ffffff;
+            border: 2px solid #000000;
+            box-shadow: 4px 4px 0px #000000; 
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .window-header {
+            background: #c3b1e1; 
+            border-bottom: 2px solid #000000;
+            padding: 6px 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .window-controls span {
+            border: 1px solid #000000;
+            background: #ffffff;
+            padding: 0 3px;
+            font-size: 10px;
+            margin-left: 2px;
+        }
+
+        .window-body {
+            padding: 15px;
+        }
+
+        /* --- 6. NỘI DUNG CỘT TRÁI (MENU) --- */
+        .menu-list { list-style: none; }
+        .menu-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #000000;
+        }
+        .menu-list li a { color: #000000; text-decoration: none; }
+        .menu-list li a:hover { text-decoration: underline; color: #d600b3; }
+
+        /* --- 7. NỘI DUNG CỘT GIỮA (BÀI DỊCH) --- */
+        .post-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .post-title { font-weight: bold; color: #000000; margin-top: 5px; }
+        .post-tag {
+            background: #FDCEEA;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 10px;
+            border: 1px solid #000000;
+            display: inline-block;
+        }
+
+        /* --- 8. CSS CHO PLAYER (ĐÃ BỎ PLAYLIST) --- */
+        .player-info {
+            text-align: center;
+            margin-bottom: 15px;
+            background: #fff0fa;
+            border: 1px dashed #d600b3;
+            padding: 10px;
+        }
+        .song-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d600b3;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .artist { font-size: 11px; color: #555; }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+        .seek-bar {
+            flex: 1;
+            accent-color: #d600b3;
+            cursor: pointer;
+            height: 6px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .control-btn {
+            background: #e0e0e0;
+            border: 2px solid #000000;
+            box-shadow: 2px 2px 0px #000000;
+            padding: 5px 15px;
+            font-family: 'DotGothic16';
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .control-btn:active {
+            box-shadow: 0px 0px 0px #000000;
+            transform: translate(2px, 2px);
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Hi there 👋</h1>
-        <p>Page này là nháp.</p>
-        <p><strong>Nội dung chủ yếu là bản dịch của mình, hahaha.</strong></p>
+
+    <audio id="main-audio" src="./My Way.mp3"></audio>
+
+    <div class="announcement-bar">
+        <div class="announcement-left">
+            <span>HOME</span>
+        </div>
+        <div>
+            <span>WELCOME TO JUSTWANTAQ'S HOUSE </span>
+        </div>
     </div>
+
+    <div class="header-logo">
+        👾 justwantaq 👾
+    </div>
+
+    <div class="container">
+        
+        <aside>
+            <div class="window">
+                <div class="window-header">
+                    <span>c:\ quick links</span>
+                    <div class="window-controls"><span>-</span><span>▢</span><span>X</span></div>
+                </div>
+                <div class="window-body">
+                    <ul class="menu-list">
+                        <li><a href="#">★ DAY6</a></li>
+                        <li><a href="#">★ Youngpil</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="window-header">
+                    <span>welcome babe!</span>
+                    <div class="window-controls"><span>X</span></div>
+                </div>
+                <div class="window-body" style="font-size: 12px; text-align: center;">
+                    <p>Thanks for stopping by!</p>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="window">
+                <div class="window-header">
+                    <span>latest_update.exe</span>
+                    <div class="window-controls"><span>-</span><span>▢</span><span>X</span></div>
+                </div>
+                <div class="window-body">
+                    <div class="post-item">
+                        <span class="post-tag">Transfic</span>
+                        <p class="post-title">Still wanna be your trouble</p>
+                    </div>
+                    
+                    <div class="post-item">
+                        <span class="post-tag">Discussion</span>
+                        <p class="post-title">Một vài phân tích ngẫu nhiên và không nghiêm túc về phần lời bài hát tiếng Anh của DAY6</p>
+                    </div>
+
+                    <div class="post-item">
+                        <span class="post-tag">Interview</span>
+                        <p class="post-title">241103 DAY6 JTBC Newsroom</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside>
+            <div class="window">
+                <div class="window-header">
+                    <span>♫ winamp.exe</span>
+                    <div class="window-controls"><span>_</span><span>▢</span><span>X</span></div>
+                </div>
+                <div class="window-body">
+                    
+                    <div class="player-info">
+                        <div class="song-title" id="display-title">My Way</div>
+                        <div class="song-status" id="display-status">DAY6</div>
+                    </div>
+
+                    <div class="progress-container">
+                        <span id="current-time">0:00</span>
+                        <input type="range" id="seek-bar" class="seek-bar" value="0" min="0" max="100">
+                        <span id="total-time">0:00</span>
+                    </div>
+
+                    <div class="player-controls">
+                        <button class="control-btn" id="btn-play" style="min-width: 100px;">PLAY</button>
+                    </div>
+
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+        const audio = document.getElementById('main-audio');
+        const btnPlay = document.getElementById('btn-play');
+        const seekBar = document.getElementById('seek-bar');
+        const currentTimeText = document.getElementById('current-time');
+        const totalTimeText = document.getElementById('total-time');
+        const displayStatus = document.getElementById('display-status');
+
+        let isPlaying = false;
+
+        // Xử lý Bật/Tạm dừng
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                btnPlay.innerText = "PLAY";
+            } else {
+                audio.play().catch(e => console.log("Cần tương tác để phát nhạc"));
+                btnPlay.innerText = "PAUSE";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        btnPlay.addEventListener('click', togglePlay);
+
+        // Cập nhật thanh thời gian khi nhạc chạy
+        audio.addEventListener('timeupdate', () => {
+            if(audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                seekBar.value = progress;
+                
+                let curMin = Math.floor(audio.currentTime / 60);
+                let curSec = Math.floor(audio.currentTime % 60);
+                if(curSec < 10) curSec = "0" + curSec;
+                currentTimeText.innerText = `${curMin}:${curSec}`;
+
+                let totMin = Math.floor(audio.duration / 60);
+                let totSec = Math.floor(audio.duration % 60);
+                if(totSec < 10) totSec = "0" + totSec;
+                totalTimeText.innerText = `${totMin}:${totSec}`;
+            }
+        });
+
+        // Tua nhạc mượt mà nhảy số ngay lập tức
+        seekBar.addEventListener('input', () => {
+            if(audio.duration) {
+                const seekTo = (seekBar.value / 100) * audio.duration;
+                audio.currentTime = seekTo;
+                
+                let curMin = Math.floor(seekTo / 60);
+                let curSec = Math.floor(seekTo % 60);
+                if(curSec < 10) curSec = "0" + curSec;
+                currentTimeText.innerText = `${curMin}:${curSec}`;
+            }
+        });
+
+        // Khi hát hết bài thì tự động quay về từ đầu và chuyển nút thành PLAY
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            btnPlay.innerText = "PLAY";
+            isPlaying = false;
+        });
+    </script>
 </body>
 </html>
