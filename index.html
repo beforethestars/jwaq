@@ -170,6 +170,13 @@
         });
         seekBar.addEventListener('input', () => { if(audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
         audio.addEventListener('ended', () => { audio.currentTime = 0; btnPlay.innerText = "PLAY"; isPlaying = false; });
+
+        /* Bảo mật: Chặn F12, Ctrl+U, Ctrl+Shift+I/J, Ctrl+S và Chuột phải (Vẫn cho copy văn bản) */
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            let k = e.key.toLowerCase();
+            if (e.key === 'F12' || (e.ctrlKey && (k === 'u' || k === 's')) || (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j'))) e.preventDefault();
+        });
     </script>
 </body>
 </html>
