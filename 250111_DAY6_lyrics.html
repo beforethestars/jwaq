@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>📂 Folder: Youngpil 📂 DAY6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-pink: #f7e6f3; --header-purple: #c3b1e1; --accent-magenta: #d600b3; --main-font: 'DotGothic16', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--main-font); background-color: var(--bg-pink); color: #000; padding-bottom: 80px; transition: font-family 0.2s ease; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+        .announcement-bar { background-color: #df9be4; padding: 10px 20px; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; }
+        .announcement-bar a { color: #000; text-decoration: none; }
+        .announcement-bar a:hover { text-decoration: underline; }
+        .header-logo { text-align: center; padding: 30px 10px; font-size: 32px; text-shadow: 2px 2px 0px #df9be4; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .btn-back { display: inline-block; background: #e0e0e0; border: 2px solid #000; box-shadow: 2px 2px 0px #000; padding: 6px 12px; font-family: inherit; font-size: 13px; font-weight: bold; color: #000; text-decoration: none; margin-bottom: 20px; cursor: pointer; }
+        .btn-back:active { box-shadow: 0px 0px 0px #000; transform: translate(2px, 2px); }
+        .window { background: #fff; border: 2px solid #000; box-shadow: 4px 4px 0px #000; margin-bottom: 20px; display: flex; flex-direction: column; }
+        .window-header { background: var(--header-purple); border-bottom: 2px solid #000; padding: 6px 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+        .window-controls span { border: 1px solid #000; background: #fff; padding: 0 3px; font-size: 10px; margin-left: 2px; cursor: pointer; }
+        .window-body { padding: 30px; line-height: 1.7; }
+        .post-title { font-size: 20px; margin-bottom: 15px; color: #000; line-height: 1.4; text-align: left; font-weight: bold; }
+        .post-meta { font-size: 13px; color: #666; text-align: left; margin-bottom: 25px; border-bottom: 1px dashed #000; padding-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .post-tag { background: #ffadd8; color: #000000; padding: 3px 18px; font-size: 14px; border-radius: 20px; border: 2px solid #000; font-weight: bold; display: inline-block; box-shadow: 2px 2px 0px #000; margin-right: 5px; }
+        .p-normal { font-size: 14px; margin-bottom: 15px; text-align: justify; }
+        .ps-box { background: #fbf0f9; border: 1px dashed var(--accent-magenta); padding: 12px; margin-bottom: 25px; font-size: 13px; border-radius: 4px; }
+        .section-heading { font-size: 15px; font-weight: bold; margin: 30px 0 15px 0; color: var(--accent-magenta); border-bottom: 1px solid var(--accent-magenta); padding-bottom: 3px; }
+        .member-heading { font-size: 15px; font-weight: bold; margin: 35px 0 15px 0; padding: 4px 10px; display: inline-block; border: 2px solid #000; box-shadow: 2px 2px 0px #000; }
+        .member-yk { background: #ff9e6e; color: #000; }
+        .member-sj { background: #bfa38a; color: #000; }
+        .member-wp { background: #fca1d9; color: #000; }
+        .member-dw { background: #FAC895; color: #000; }
+        .song-group { margin-bottom: 18px; padding-left: 5px; }
+        .song-title { font-size: 14px; font-weight: bold; color: #000; margin-bottom: 4px; }
+        .lyric-line { font-size: 14px; margin-bottom: 3px; list-style: none; padding-left: 15px; }
+        .en-hl { font-weight: bold; background-color: #ffe3fb; padding: 0 4px; border-bottom: 1px solid var(--accent-magenta); color: #000; }
+        .explain-text { font-size: 13px; color: #555; margin: 5px 0 10px 15px; font-style: italic; border-left: 2px solid #999; padding-left: 10px; text-align: justify; }
+        .taskbar { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #d4d0c8; border-top: 2px solid #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; z-index: 9999; box-shadow: 0 -2px 0px #808080; }
+        .start-button { background: #d4d0c8; border: 2px solid; border-color: #fff #555 #555 #fff; padding: 2px 8px; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        .start-button:active { border-color: #555 #fff #fff #555; }
+        .taskbar-right { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: bold; }
+        .font-selector { background: #fff; border: 2px solid #000; font-family: 'Courier New', Courier, monospace; font-size: 12px; padding: 1px 5px; cursor: pointer; outline: none; font-weight: bold; }
+        .systray-time { background: #d4d0c8; border: 2px solid; border-color: #555 #fff #fff #555; padding: 2px 8px; font-size: 11px; text-align: center; line-height: 1.2; }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        <div class="nav-links"><a href="index.html">TRANG CHỦ</a></div>
+        <div><span>WELCOME TO LTQ'S HOUSE</span></div>
+    </div>
+
+    <div class="header-logo">👾 ltq.myday 👾</div>
+
+    <div class="container">
+        <a href="day6.html" class="btn-back"> &lt; DAY6.exe </a>
+
+        <div class="window">
+            <div class="window-header">
+                <span>250111_DAY6_lyrics.txt</span>
+                <div class="window-controls"><span onclick="location.href='index.html'">-</span><span>▢</span><span onclick="location.href='index.html'">X</span></div>
+            </div>
+            
+            <div class="window-body">
+                <h1 class="post-title">MỘT VÀI PHÂN TÍCH NGẪU NHIÊN VÀ KHÔNG NGHIÊM TÚC VỀ PHẦN LỜI BÀI HÁT TIẾNG ANH CỦA DAY6</h1>
+                
+                <div class="post-meta">
+                    <span class="post-tag">Discussion</span> • Người dịch: LTQ
+                </div>
+
+                <div class="ps-box">
+                    <strong>P/s:</strong> Tui hoàn toàn không biết mấy ảnh nghĩ gì khi viết nhạc hết – chỉ là tui thích ca từ mà mấy ảnh viết thôi! Tất cả chỉ là để giải trí cho nên hãy xem xét một cách thận trọng nhé!
+                </div>
+
+                <p class="p-normal">
+                    Các bài hát của DAY6 chủ yếu là tiếng Hàn, và đây là một điều tốt! Đây là một trong những lý do mà tui rất yêu âm nhạc của mấy ảnh. Điều này cũng có nghĩa là khi mấy ảnh sử dụng tiếng Anh thì có vẻ như là một sự lựa chọn có chủ đích. Dưới đây là một số ví dụ và quan điểm cá nhân của tui:
+                </p>
+
+                <div class="section-heading">✍️ Lời tiếng Anh xuất hiện thường xuyên và nhất quán ở phần điệp khúc/bridge:</div>
+                
+                <div class="song-group">
+                    <div class="song-title">💿 Monster</div>
+                    <div class="lyric-line">• "<span class="en-hl">So nobody, nobody wants me</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">I don't bite</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Lonely night</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 The Power of Love</div>
+                    <div class="lyric-line">• "<span class="en-hl">You need the power of love</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Don't you worry try it now</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Zombie</div>
+                    <div class="lyric-line">• "다 털어놓고 <span class="en-hl">wanna cry</span>"</div>
+                    <div class="lyric-line">• "다 내려놓고 <span class="en-hl">can I cry?</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">I feel like I became a zombie</span>"</div>
+                </div>
+
+                <div class="section-heading">✍️ Phân lời tiếng Anh cũng xuất hiện trong đoạn pre-chorus:</div>
+                <p class="p-normal" style="font-style: italic; color: #555; margin-bottom: 20px;">
+                    Có một vài bài mà câu cuối trong trong phần pre-chorus là tiếng Anh, ngay trước phần điệp khúc vang lên (thật ra thì tui thấy điều này được thể hiện rõ hơn trong solo của Young K cơ mà tui sẽ nói về nó sau).
+                </p>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Welcome to the Show</div>
+                    <div class="lyric-line">• "<span class="en-hl">If so, then let's go, welcome to the show</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Sweet Chaos</div>
+                    <div class="lyric-line">• "<span class="en-hl">I'm losing control...</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Wish</div>
+                    <div class="lyric-line">• "<span class="en-hl">Cannot change my life...</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 I'm Fine</div>
+                    <div class="lyric-line">• "<span class="en-hl">I'm gonna die and you're gonna die, then what?</span>"</div>
+                </div>
+
+                <div class="section-heading">✍️ Khi lời tiếng Anh chủ yếu hoặc chỉ nằm ở phần điệp khúc:</div>
+                <p class="p-normal" style="font-style: italic; color: #555; margin-bottom: 20px;">
+                    Nó thường nằm ở đoạn đầu (hoặc đôi lúc là đoạn cuối) của mỗi phần điệp khúc, và về cơ bản thì nó đưa ra thông điệp của mỗi bài hát. Một cách đóng khung vô cùng gọn gàng.
+                </p>
+
+                <div class="song-group">
+                    <div class="song-title">💿 HAPPY</div>
+                    <div class="lyric-line">• "<span class="en-hl">May I be happy?</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">So help me</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Tell me it's okay to be happy</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Only</div>
+                    <div class="lyric-line">• "<span class="en-hl">Baby, you are my only love</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Let Me Love You</div>
+                    <div class="lyric-line">• "<span class="en-hl">Let me give you all my love</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Let me tell you all my love</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 I Loved You</div>
+                    <div class="lyric-line">• "<span class="en-hl">Really, I loved you</span>"</div>
+                </div>
+
+                <div class="section-heading">✍️ Trở về thời mà bọn mình vẫn còn rappers (lol 🤣):</div>
+                <p class="p-normal" style="font-style: italic; color: #555; margin-bottom: 20px;">
+                    Mấy ní cũng sẽ thấy nhiều lời tiếng Anh hơn vì chúng xuất hiện khá nhiều trong các phần rap.
+                </p>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Like That Sun</div>
+                    <div class="lyric-line">• "너의 약간 싫은 척 하면서 좋아하는 <span class="en-hl">smile too great</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Too lifted Icarus</span>"</div>
+                    <div class="lyric-line">• "너 곁e 있을래 날 까맣게 태워도 붙잡을 수 밖에 없는 <span class="en-hl">reason is</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Cause I'll miss you too damn much</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Sing Me</div>
+                    <div class="lyric-line">• "I'll be everlasting 없어 끝마침"</div>
+                    <div class="lyric-line">• "Don't say good bye baby like <span class="en-hl">Miss A</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Freely</div>
+                    <div class="lyric-line">• "자, <span class="en-hl">you got a feeling</span>"</div>
+                    <div class="lyric-line">• "일단 박차고 일어나서 <span class="en-hl">get together</span>"</div>
+                    <div class="lyric-line">• "해 뜨기 전 오늘 밤 음악은 <span class="en-hl">turn up</span>"</div>
+                    <div class="lyric-line">• "털어 내 <span class="en-hl">all day stress</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Hunt</div>
+                    <div class="lyric-line">• "비젼이 있어 보여 <span class="en-hl">oh my Jesus</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">Yes good morning</span>"</div>
+                </div>
+
+                <div class="section-heading">✍️ Dùng tiếng Anh để chỉ ra/làm nổi bật về một điều gì đó:</div>
+                <p class="p-normal" style="font-style: italic; color: #555; margin-bottom: 20px;">
+                    Một điều mà tui nhận ra được và tui rất thích - sử dụng tiếng Anh để chỉ ra hoặc là làm nổi bật rằng mấy ảnh đang nói về một điều gì đó với ai đó (người nghe/chính bản thân mấy ảnh/hoặc là không ai hết/...). Khi mấy ní nghe nhạc, mấy ní cũng không thấy dấu ngoặc kép, vậy thì có cách nào để phân biệt nó?
+                </p>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Sad Ending</div>
+                    <div class="lyric-line">• "마법이 풀린 순간 내뱉어 버린, <span class="en-hl">"Where's the love?"</span>"</div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Afraid</div>
+                    <div class="lyric-line">• "<span class="en-hl">I'm so afraid</span>" / "<span class="en-hl">What should I do?</span>"</div>
+                    <div class="explain-text">
+                        Hầu hết những lời tiếng Hàn khác đều mang tính ẩn dụ, và mô tả nhiều hơn những gì nhân vật nhìn thấy và cảm nhận của họ về điều đó. Ví dụ: "cậu từng nói bầu trời thật đẹp, nhưng giờ đây chỉ nhìn xuống đất" / "cậu như vầng trăng soi sáng đêm đen, mình không nghĩ mình có thể làm cậu hạnh phúc hơn trước khi cậu biết mình" → Về bản chất thì nhân vật muốn hét lên rằng: Tôi đang cảm thấy vô cùng sợ hãi, tôi phải làm thế nào đây?
+                    </div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Melt Down</div>
+                    <div class="lyric-line">• "<span class="en-hl">Love you, hold you, give you all I got</span>"</div>
+                    <div class="explain-text">
+                        Đây là câu tiếng Anh duy nhất của bài hát, mang ý "đây là điều mà mình muốn nói với cậu! Đây là điều mà mình muốn làm cho cậu, và mình muốn nhấn mạnh rằng điều này là dành cho cậu.")
+                    </div>
+                </div>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Monster</div>
+                    <div class="lyric-line">• "<span class="en-hl">Let me in, let me be, let me live</span>"</div>
+                    <div class="lyric-line">• "<span class="en-hl">I don't bite</span>"</div>
+                    <div class="explain-text">
+                        Phần lớn lời tiếng Hàn dùng để than thở về hoàn cảnh của nhân vật, nói về những gì mà nhân vật đang phải vật lộn để đấu tranh (chủ yếu là trong suy nghĩ). Hai câu hát tiếng Anh ở trên là lời của nhân vật muốn nói cho người nghe (mở đầu đoạn bridge, như một lời van xin rằng đừng đẩy nhân vật ra xa mà hãy giúp đỡ anh).
+                    </div>
+                </div>
+
+                <div class="section-heading">✍️ Một vài ví dụ khác:</div>
+                <div class="song-group">
+                    <div class="song-title">💿 Hi Hello</div>
+                    <div class="lyric-line">• <span class="en-hl">Hi</span> (Hello)</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 When you love someone</div>
+                    <div class="lyric-line">• "<span class="en-hl">This is a song for you / Oh I'm singing for you</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 121U</div>
+                    <div class="lyric-line">• "<span class="en-hl">You don't love me / So don't want me / You don't need me / Just leave me</span> 못 헤어나올 걸 á니까 (<span class="en-hl">it's dangerous</span>)"</div>
+                    <p class="p-normal" style="font-style: italic; color: #555; margin-top: 15px; margin-bottom: 20px;">
+                        Dù sao thì tui cũng không rõ mấy câu này là nhân vật cố ý nói với người nghe hay là do tui chỉ đang suy nghĩ quá thôi nhưng mà tui thấy hay đó!!
+                    </p> 
+                </div>
+
+                <div class="section-heading">✍️ Lặp lại bằng hai thứ tiếng:</div>
+                <p class="p-normal" style="font-style: italic; color: #555; margin-bottom: 20px;">
+                    Này thì không thường gặp, nhưng tui cũng thích khi mấy ảnh lặp lại những điều rất là quan trọng, đến mức mà phải nói cho người nghe bằng hai thứ tiếng.
+                </p>
+                <div class="song-group">
+                    <div class="song-title">💿 Beautiful Feeling</div>
+                    <div class="lyric-line">• "<span class="en-hl">this beautiful feeling</span> / 이 아름다운 느낌"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 Only</div>
+                    <div class="lyric-line">• "내 사랑은 둘도 아닌 하나밖에 없어 / <span class="en-hl">I got only one love not two for you</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 Only</div>
+                    <div class="lyric-line">• "내 사랑은 둘도 아닌 하나밖에 없어 / <span class="en-hl">I got only one love not two for you</span>"</div>
+                </div>
+
+                <p class="p-normal" style="margin-top: 40px; font-weight: bold; border-top: 2px solid #000; padding-top: 25px;">
+                    Tui cũng đã nghiên cứu các bài solo để hiểu rõ hơn về phong cách cá nhân của từng thành viên. Tất nhiên là tui sẽ bắt đầu với Young K rồi. 👇
+                </p>
+
+                <div class="member-heading member-yk" style="margin-top: 5px;">🦊 YOUNG K STYLE</div>
+                <p class="p-normal">
+                    Ảnh hưởng của ảnh đến lời bài hát của nhóm là rõ ràng nhất, và nhạc của anh cũng có nhiều phần lời tiếng Anh nhất bởi vì ảnh có thể nói được hai thứ tiếng nên điều đó cũng là lẽ đương nhiên.
+                </p>
+                <p class="p-normal" style="font-style: italic;">
+                    Lời tiếng Anh trong phần điệp khúc/bridge khá phổ biến trong các bài solo của ảnh, nhưng đây là nơi tui bắt đầu nhận thấy rằng ảnh có xu hướng sử dụng tiếng Anh ở dòng cuối của phần pre-chorus, ngay trước khi phần điệp khúc bắt đầu.
+                </p>
+                
+                <div class="song-group">
+                    <div class="song-title">💿 let it be summer</div>
+                    <div class="lyric-line">• "<span class="en-hl">Never let it fade away</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 Microphone</div>
+                    <div class="lyric-line">• "<span class="en-hl">So tell me baby</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 Guard You</div>
+                    <div class="lyric-line">• "<span class="en-hl">I won't ever let you cry</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 playground</div>
+                    <div class="lyric-line">• "<span class="en-hl">We got to look back on those days</span>"</div>
+                </div>
+
+                <p class="p-normal">
+                    Như tui đã nói rằng sử dụng tiếng Anh để diễn đạt một câu nói, tui sẽ nói về bài <strong>natural</strong> (mấy ní có thể nói rằng này là một trong những bài ảnh solo yêu thích của tui):
+                </p>
+                <div class="song-group" style="padding-left: 15px;">
+                    <div class="lyric-line">• "<span class="en-hl">Do you love me?</span>" / "<span class="en-hl">Would you love me?</span>" → Nhân vật trong bài được hỏi và chờ câu trả lời. Mấy ní có thể thấy điều đó qua hai câu tiếng Anh này được kết thúc bằng dấu chấm hỏi. Hai câu này dùng để tách biệt với suy nghĩ/câu trả lời của nhân vật bằng tiếng Hàn (mấy câu hỏi này thật mất thời gian, em không cần phải hỏi đâu, vì câu trả lời của anh vẫn sẽ không thay đổi).</div>
+                    <div class="lyric-line">• "<span class="en-hl">Do you love me?</span>" / "<span class="en-hl">I'll just make you believe, Until you believe, Continue to repeat, I love you I love you I love you I love you </span>" . Quay lại với câu hỏi "Do you love me?", thì nhân vật lại được hỏi thêm lần nữa.</div>
+                    <p class="p-normal">
+                    → Và theo sau đó là những suy nghĩ của nhân vật (bằng tiếng Hàn): Em định hỏi anh câu này đến khi nào nữa...nhưng mà không sao hết!
+                    </p>
+                    <p class="p-normal">
+                    → Câu trả lời của nhân vật (bằng tiếng Anh): <span class="en-hl">"I'll just make you believe, Until you believe, continue to repeat, I love you I love you I love you I love you</span>"
+                    </p> 
+                </div>
+                
+                <p class="p-normal" style="font-style: italic; color: #555; margin-top: 10px;">
+                    👉 Nói chung là bài nào của Young K càng vui vẻ sôi động thì bài đó có nhiều lời tiếng Anh hơn lol.<br>
+                    Ví dụ: <br>
+                    • Những bài có từ 0-1 lời tiếng Anh: <strong>come as you are</strong>, <strong>goodnight, dear</strong>, <strong>nothing but</strong><br>
+                    • Nhiều tiếng Anh: <strong>strange</strong>, <strong>natural</strong>, <strong>bungee jumping</strong>, <strong>babo</strong><br>
+                </p>
+
+                <div class="member-heading member-sj" style="margin-top: 5px;">🐻 SUNGJIN STYLE</div>
+                <p class="p-normal">
+                    Sungjin thì rất thẳng thắn! Ảnh thích sử dụng tiếng Anh trong phần điệp khúc để truyền tải trực tiếp thông điệp chính hoặc để nhấn mạnh thông điệp đó ở phần cuối của điệp khúc (mấy ní có thể thấy được điều này trong <i><strong>Afraid</strong></i>).
+                </p>
+                
+                <div class="song-group">
+                    <div class="song-title">💿 Covered in Love</div>
+                    <div class="lyric-line">• "<span class="en-hl">Make a wish everyone would be covered in love</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 Check Pattern</div>
+                    <div class="lyric-line">• "<span class="en-hl">Life's life walking on a check pattern</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 I don't wanna lose</div>
+                    <div class="lyric-line">• "<span class="en-hl">I don't wanna lose you, please be you, I hope you walk your way</span>"</div>
+                    <div class="lyric-line" style="margin-top: 3px; font-weight: bold; color: var(--accent-magenta);">• Đặc biệt, ở đoạn Bridge: "<span class="en-hl">We are never wrong, we are just different</span>"</div>
+                    <div class="explain-text">
+                        Tui thích bài này nhiều đến mức phải mất một thời gian để suy nghĩ về đoạn bridge này vì nó có sự thay đổi khá đột ngột. Toàn bộ bài hát là lời nhân vật tự nói với chính mình, và đây là đoạn tiếng Anh duy nhất ngoài những câu trong phần điệp khúc, và đoạn này thì anh không còn tự nói với chính mình nữa, mà là người khác nói cho anh nghe, và đó là điều mà sau này anh ấy phải chấp nhận (mấy ní có thể thấy câu sau đoạn này là: "một ngày nào đó tôi cũng sẽ rõ ràng điều đó thôi")
+                    </div>
+                </div>
+                
+                <div class="song-group">
+                    <div class="song-title">💿 You Wake Me Up</div>
+                    <div class="lyric-line">• "<span class="en-hl">You wake me up, you wake me up</span>"</div>
+                </div>
+                
+                <p class="p-normal">
+                    🐻 Đôi lúc phần lời tiếng Anh không nhất thiết phải là để truyền tải thông điệp nhưng mà là nhấn mạnh thông điệp đó ở phần cuối của điệp khúc
+                </p>
+    
+                <div class="song-group">
+                    <div class="song-title">💿 EASY</div>
+                    <div class="lyric-line">• "<span class="en-hl">Tell me how to make easy</span>"</div>
+                </div>
+
+                <p class="p-normal">
+                    🐻 Có một bài khiến tui khá bất ngờ đó là Wednesday Night, ý là hai ơi hai, hai lấy đâu ra mấy từ vựng này vậy hai =)))))))))))
+                </p>
+
+                <div class="song-group">
+                    <div class="song-title">💿 Wednesday Night</div>
+                    <div class="lyric-line" style="line-height: 1.6;">
+                        • "<span class="en-hl">Hope to be with you on every Wednesday night / Wednesday night / Making new memories / Sailing through our stories / Waning moon / I can't sleep / Seven days of waiting / Let them pass, I'm counting / Every night I'm praying</span>"
+                    </div>
+                </div>
+
+                <div class="member-heading member-wp" style="margin-top: 5px;">🐰 WONPIL STYLE</div>
+                <p class="p-normal">
+                    Về Wonpil thì ảnh chỉ có hai dòng lời tiếng Anh ở trong toàn bộ album solo của ảnh thôi. Cá nhân tui thấy là chúng được thêm vào để giai điệu được trôi chảy hơn, trừ khi tui bỏ lỡ điều gì đó. Rõ ràng là ảnh thích viết chủ yếu bằng tiếng Hàn hơn (và ảnh làm rất là điêu luyện)!
+                </p>
+                
+                <div class="song-group">
+                    <div class="song-title">💿 A writer in a love story</div>
+                    <div class="lyric-line">• "끝이 없을 <span class="en-hl">our story</span>"</div>
+                </div>
+                <div class="song-group">
+                    <div class="song-title">💿 Pieces</div>
+                    <div class="lyric-line">• "<span class="en-hl">I don't know why, please tell me why</span>"</div>
+                </div>
+                <div class="p-normal">
+                    Cơ mà tui cũng nghĩ đến chiếc video mà ảnh đã nói về Zombie! Ảnh nói rằng ảnh đặc biệt muốn câu đầu tiên trong đoạn điệp khúc của Zombie phải là tiếng Anh nên Young K đã viết lại cho ảnh. Thật sự mà nói thì có thể đây chỉ là về sự trôi chảy của bài hát thôi, Wonpil luôn có cảm nhận rất xịn xò về những thứ như thế này mà. Nhưng liệu tiếng Anh/sự thay đổi trong ngôn ngữ có tạo ra sự ngăn cách hay cảm giác xa lạ không? Kiểu, mọi thứ đều lướt qua mấy ní, mấy ní cảm thấy không còn thân thuộc với mấy thứ đó nữa, và mấy ní chỉ lơ đãng nhìn chúng từ xa/nhìn quan màn hình?
+                </div>
+
+                <div class="member-heading member-dw" style="margin-top: 5px;">🐶 DOWOON STYLE</div>
+                <p class="p-normal">
+                    Ok và giờ thì đến Dowoon... tui không có nhiều dẫn chứng lắm, cơ mà bài out of the blue thì chỉ một câu tiếng Anh duy nhất
+                </p>
+                <div class="song-group">
+                    <div class="song-title">💿 out of the blue</div>
+                    <div class="lyric-line">• "<span class="en-hl">it's gonna be alright</span>"</div>
+                    <div class="explain-text">
+                        Một câu tiếng Anh duy nhất, và lời tiếp theo là tiếng Hàn, "chậm một chút cũng không sao". Tất cả những câu hát trước đó chỉ là đang suy ngẫm về quá khứ và việc đó không hề dễ dàng, nhưng đến cuối lại thì những gì ta muốn nói với bản thân mình rằng: mọi chuyện sẽ ổn thôi!
+                    </div>
+                </div>
+
+                <div class="section-heading" style="margin-top: 35px;">💡 MỘT VÀI SUY NGHĨ CỦA TUI:</div>
+                <p class="p-normal" style="background: #fff0fa; padding: 15px; border: 1px dashed var(--accent-magenta);">
+                    Lúc đầu tui nghĩ sử dụng tiếng Anh khi viết lời sẽ là cách thoải mái hơn để thể hiện sự tổn thương, yếu đuối, vì về mặt lý thuyết thì sử dụng một ngôn ngữ khác sẽ tạo ra khoảng cách giữa mấy ní và những gì mấy ní đang thể hiện. Và bằng cách nào đó, thì nó có vẻ là được thể hiện gián tiếp hơn? Nhưng tui không nghĩ đây là trường hợp của DAY6! Khi mấy ảnh muốn nhấn mạnh cảm xúc và sự chân thành của bài hát, thì phần lời chủ yếu là sẽ được diễn đạt bằng tiếng Hàn.<br>
+                    Ví dụ: <br> 
+                    • <strong><i>I'll try</i></strong>, <strong><i>hurt road</i></strong>, <strong><i>still there</i></strong> , <strong><i>Cover </i></strong> (Không có lời tiếng Anh)<br>
+                    • <strong><i>I like you</i></strong>, <strong><i>I Would</i></strong>, <strong><i>didn't know</i></strong> , <strong><i>Like a flowing wind </i></strong> (chỉ duy nhất 1 câu hoặc 1 từ tiếng Anh)<br>
+                    Và mấy ní cũng dễ dàng nhận thấy được điều đó ở trong các bài hát solo - <strong><i>come as you are</i></strong>, <strong><i>goodnight, dear</i></strong>, <strong><i>nothing but</i></strong> của Young K; <strong><i>memories</i></strong>, <strong><i>nowhere you are</i></strong> của Sungjin; toàn bộ album <strong>Pilmography</strong> của Wonpil 🥰
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="taskbar">
+        <div class="start-button" onclick="location.href='index.html'"><span>🛸</span><span>START</span></div>
+        <div class="taskbar-right">
+            <select id="font-select" class="font-selector">
+                <option value="'DotGothic16', sans-serif">DotGothic16</option>
+                <option value="'VT323', monospace">VT323</option>
+                <option value="'Courier New', Courier, monospace">Courier New</option>
+                <option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
+            </select>
+            <div class="systray-time" id="clock">00:00 AM<br>01/01/2026</div>
+        </div>
+    </div>
+
+    <script>
+        const fontSelect = document.getElementById('font-select'), clock = document.getElementById('clock');
+        fontSelect.addEventListener('change', e => document.body.style.setProperty('--main-font', e.target.value));
+
+        function updateClock() {
+            const now = new Date();
+            let h = now.getHours(), m = now.getMinutes(), ampm = h >= 12 ? 'PM' : 'AM';
+            let day = now.getDate(), month = now.getMonth() + 1, year = now.getFullYear();
+            h = h % 12; h = h ? h : 12; m = m < 10 ? '0'+m : m;
+            day = day < 10 ? '0'+day : day; month = month < 10 ? '0'+month : month;
+            clock.innerHTML = `${h}:${m} ${ampm}<br>${day}/${month}/${year}`;
+        }
+        setInterval(updateClock, 1000); updateClock();
+
+        /* 🔒 BÙA BẢO MẬT: Chặn F12, Chuột phải, Xem nguồn (Ctrl+U), Lưu trang (Ctrl+S), Tìm kiếm (Ctrl+F) và Tuyệt đối KHÔNG CHO COPY (Ctrl+C, Ctrl+A, Ctrl+X) */
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            let k = e.key.toLowerCase();
+            if (e.key === 'F12' || (e.ctrlKey && (k === 'u' || k === 's' || k === 'c' || k === 'a' || k === 'f' || k === 'x')) || (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j' || k === 'c'))) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
