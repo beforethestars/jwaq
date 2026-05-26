@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>📂 Folder: Youngpil 📂</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --main-font: 'DotGothic16', sans-serif; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--main-font); background-color: #f7e6f3; color: #000; padding-bottom: 80px; transition: font-family 0.2s ease; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
         .top-nav { background-color: #df9be4; padding: 10px 20px; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; }
-        .nav-links a { color: #000; text-decoration: none; }
-        .nav-links a:hover { text-decoration: underline; }
+        .nav-links a { color: #000; text-decoration: none; } .nav-links a:hover { text-decoration: underline; }
         .header-logo { text-align: center; padding: 30px 10px; font-size: 32px; text-shadow: 2px 2px 0px #df9be4; }
         .main-container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         .btn-back { display: inline-block; background: #e0e0e0; border: 2px solid #000; box-shadow: 2px 2px 0px #000; padding: 6px 12px; font-family: inherit; font-size: 13px; font-weight: bold; color: #000; text-decoration: none; margin-bottom: 20px; cursor: pointer; }
@@ -20,66 +18,53 @@
         .window { background: #ffffff; border: 2px solid #000; box-shadow: 4px 4px 0px #000; margin-bottom: 20px; }
         .window-header { background: #c3b1e1; border-bottom: 2px solid #000; padding: 6px 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
         .window-controls span { border: 1px solid #000; background: #ffffff; padding: 0 4px; font-size: 10px; cursor: pointer; }
-        .window-body { padding: 25px; }
+        .window-body { padding: 25px; font-size: 16px; }
         .post-meta-wrapper { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #555; margin-bottom: 12px; flex-wrap: wrap; }
         .tag-pill { display: inline-flex; align-items: center; gap: 4px; padding: 4px 15px; font-size: 13px; font-weight: bold; border: 2px solid #000; border-radius: 20px; box-shadow: 2px 2px 0px #000; color: #000; background-color: #fbc6e3; }
         .meta-dot { color: #555; font-weight: bold; }
-        .post-content { font-size: 16px; line-height: 1.8; text-align: justify; }
-        .post-content p { margin-bottom: 15px; }
+        .post-content { font-size: inherit; line-height: 1.8; text-align: justify; } .post-content p { margin-bottom: 15px; }
         .divider { border: none; border-top: 2px dashed #df9be4; margin-bottom: 20px; }
         .taskbar { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #d4d0c8; border-top: 2px solid #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; z-index: 9999; box-shadow: 0 -2px 0px #808080; }
-        .start-button { background: #d4d0c8; border: 2px solid; border-color: #fff #555 #555 #fff; padding: 2px 8px; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; }
-        .start-button:active { border-color: #555 #fff #fff #555; }
+        .start-button { background: #d4d0c8; border: 2px solid; border-color: #fff #555 #555 #fff; padding: 2px 8px; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; } .start-button:active { border-color: #555 #fff #fff #555; }
         .taskbar-right { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: bold; }
         .font-selector { background: #fff; border: 2px solid #000; font-family: 'Courier New', Courier, monospace; font-size: 12px; padding: 1px 5px; cursor: pointer; outline: none; font-weight: bold; }
         .systray-time { background: #d4d0c8; border: 2px solid; border-color: #555 #fff #fff #555; padding: 2px 8px; font-size: 11px; text-align: center; line-height: 1.2; }
+        .size-slider-container { display: flex; align-items: center; background: #d4d0c8; border: 2px solid; border-color: #555 #fff #fff #555; padding: 2px 6px; gap: 6px; font-family: 'Courier New', Courier, monospace; font-weight: bold; }
+        .size-slider-container .small-a { font-size: 11px; } .size-slider-container .large-a { font-size: 16px; }
+        .retro-slider { -webkit-appearance: none; appearance: none; width: 70px; height: 6px; background: #fff; border: 1px solid #000; outline: none; }
+        .retro-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #ff00b3; border: 1px solid #000; cursor: pointer; }
+        .retro-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #ff00b3; border: 1px solid #000; cursor: pointer; }
     </style>
 </head>
 <body>
-
     <div class="top-nav">
         <div class="nav-links"><a href="index.html">TRANG CHỦ</a></div>
         <div><span>WELCOME TO LTQ'S HOUSE</span></div>
     </div>
-
     <div class="header-logo">👾 ltq.myday 👾</div>
-
     <div class="main-container">
         <a href="javascript:history.back()" class="btn-back"> &lt; youngpil.exe </a>
-
         <div class="window">
-            <div class="window-header">
-                <span>231026_YP_Creative_Duo.txt</span>
-                <div class="window-controls"><span>X</span></div>
-            </div>
-            <div class="window-body">
+            <div class="window-header"><span>231026_YP_Creative_Duo.txt</span><div class="window-controls"><span>X</span></div></div>
+            <div class="window-body" id="text-window-body">
                 <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">SỰ ĂN Ý VÀ TIN TƯỞNG LẪN NHAU TRONG QUÁ TRÌNH SÁNG TÁC</h1>
-                
                 <div class="post-meta-wrapper">
-                    <div class="tag-pill"><span>Interview</span></div>
-                    <span class="meta-dot">•</span>
-                    <span>Người dịch: LTQ</span>
+                    <div class="tag-pill"><span>Interview</span></div><span class="meta-dot">•</span><span>Người dịch: LTQ</span>
                 </div>
-
                 <div class="divider"></div>
-
                 <div class="post-content">
                     <p><strong>SPORTSQ Interview (171208)</strong></p>
                     <p>Young K chọn Wonpil là thành viên đánh giá lời bài hát anh viết một cách khách quan nhất. Anh bày tỏ sự tin tưởng rất lớn đối với Wonpil, "Nếu Wonpil nói "Không", mình sẽ bỏ hết toàn bộ. Nếu em nói được thì mình cảm giác như là mình đã hoàn toàn được công nhận vậy."</p>
                     <p>Wonpil cảm thấy bối rối trước lời khen của Young K, "Mình đã rất ngạc nhiên khi Young K bỏ hết lời bài hát đi." "Mình nghĩ là mình phải diễn đạt tốt hơn một chút."</p>
-                    
                     <p><strong>OhmyNews Interview (171208)</strong></p>
                     <p>Sau khi viết lời, Young K sẽ hỏi ý kiến của tất cả các thành viên, đặc biệt là Wonpil. "Nếu Wonpil nói "Không", mình sẽ bỏ hết toàn bộ. Nếu em nói "Em nghĩ là ổn" thì mình sẽ sửa lại. Nếu em nói "Em thấy hay đó" thì mình sẽ giữ lại. Từ một khoảnh khắc nào đó, Wonpil dường như đã trở thành tiêu chuẩn."</p>
                     <p>Young K chỉ ra khả năng cảm thụ âm nhạc của Wonpil đã được mài giũa khi cậu được tiếp cận với đa dạng thể loại nhạc khác nhau từ khi còn nhỏ đến mức có thể đoán ra được tựa đề khi nghe 3 giây đầu tiên của bài hát. Anh nói thêm rằng anh rất ghen tị với khả năng đó của Wonpil.</p>
-                    
                     <p><strong>Jukjae's Late Night Studio (200928)</strong></p>
                     <p>🦊 Mình nghĩ là Wonpil có đủ khả năng để soạn một ca khúc từ đầu đến cuối. Thực tế thì em đã từng làm như vậy rồi. Mình cũng đã nghe qua các bản demo. Em ấy có đủ năng lực để làm điều đó.</p>
-                    
                     <p><strong>The Korea Economic Daily Interview (210705)</strong></p>
-                    <p>🦊 Trong quá trình chuẩn bị album (Right Through Me), khi ngồi uống cùng nhau, mình đã nói chuyện với Wonpil. Bọn mình nói chuyện rất nhiều, đặc biệt là tập trung vào album này và tìm cách thực hiện nó. Mình rất tin tưởng vào cảm nhận của Wonpil khi làm việc với em, và lần này cũng không ngoại lệ.</p>
+                    <p>🦊 Trong quá trình chuẩn bị album (Right Through Me), khi ngồi uống cùng nhau, mình đã nói chuyện with Wonpil. Bọn mình nói chuyện rất nhiều, đặc biệt là tập trung vào album này và tìm cách thực hiện nó. Mình rất tin tưởng vào cảm nhận của Wonpil khi làm việc với em, và lần này cũng không ngoại lệ.</p>
                     <p>🐰 Đối với mình cũng tương tự như vậy. Mình nói chuyện với anh Young K rất nhiều, vì bọn mình đã làm việc cùng nhau với một thời gian dài rồi, nên là mình cảm thấy rất thoải mái khi làm việc cùng anh. Một trong những kỷ niệm vui nhất của bọn mình đó là cùng nhau viết lời trong lúc đang uống ở ký túc xá.</p>
                     <p>🐰 Anh Young K thật sự rất giỏi trong việc sắp xếp lời bài hát. Khi mình nói ra những ý tưởng mà mình nghĩ ra được thì nó thường rất lộn xộn. Thật là tuyệt vời khi mà mọi thứ đều thay đổi theo chiều hướng tốt hơn, chúng được sắp xếp lại hợp lý. Giữa bọn mình có sự phối hợp ăn ý như vậy là nhờ có khả năng đó của anh.</p>
-                    
                     <p><strong>Magazine MUVE Podcast, 'Dive Into Music' (231019)</strong></p>
                     <p>👤 Phản ứng của các thành viên về album mới của cậu?</p>
                     <p>🦊 Đối với Wonpil thì cái việc đánh giá cũng tương tự không chỉ riêng album lần này mà ngay cả khi bọn mình cùng sáng tác, khi em ấy nói “Em thấy hay” thì mình phải xem xem là nó hay dở như thế nào. Ví dụ như khi em xem lời mình viết, nếu em nói “Wowww em thấy hay đó” thì bài hát đó thật sự hay, nhưng nếu em nói là “Em nghĩ là cũng hay” thì mình phải bỏ đi (vì vẫn còn thiếu thiếu). Em ấy luôn nhận xét là “hay” nên mình phải hiểu được cái ý “hay” mà em muốn diễn đạt thật sự là như thế nào.</p>
@@ -93,41 +78,33 @@
             </div>
         </div>
     </div>
-
     <div class="taskbar">
         <div class="start-button" onclick="location.href='index.html'"><span>🛸</span><span>START</span></div>
         <div class="taskbar-right">
             <select id="font-select" class="font-selector">
-                <option value="'DotGothic16', sans-serif">DotGothic16</option>
-                <option value="'VT323', monospace">VT323</option>
-                <option value="'Courier New', Courier, monospace">Courier New</option>
-                <option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
+                <option value="'DotGothic16', sans-serif">DotGothic16</option><option value="'VT323', monospace">VT323</option>
+                <option value="'Courier New', Courier, monospace">Courier New</option><option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
             </select>
+            <div class="size-slider-container">
+                <span class="small-a">A</span><input type="range" id="size-slider" class="retro-slider" min="13" max="24" value="16"><span class="large-a">A</span>
+            </div>
             <div class="systray-time" id="clock">00:00 AM<br>01/01/2026</div>
         </div>
     </div>
-
     <script>
-        const fontSelect = document.getElementById('font-select'), clock = document.getElementById('clock');
+        const fontSelect = document.getElementById('font-select'), clock = document.getElementById('clock'), sizeSlider = document.getElementById('size-slider'), windowBody = document.getElementById('text-window-body');
         fontSelect.addEventListener('change', e => document.body.style.setProperty('--main-font', e.target.value));
-
+        sizeSlider.addEventListener('input', e => windowBody.style.fontSize = e.target.value + 'px');
         function updateClock() {
-            const now = new Date();
-            let h = now.getHours(), m = now.getMinutes(), ampm = h >= 12 ? 'PM' : 'AM';
-            let day = now.getDate(), month = now.getMonth() + 1, year = now.getFullYear();
-            h = h % 12; h = h ? h : 12; m = m < 10 ? '0'+m : m;
-            day = day < 10 ? '0'+day : day; month = month < 10 ? '0'+month : month;
+            const now = new Date(); let h = now.getHours(), m = now.getMinutes(), ampm = h >= 12 ? 'PM' : 'AM', day = now.getDate(), month = now.getMonth() + 1, year = now.getFullYear();
+            h = h % 12; h = h ? h : 12; m = m < 10 ? '0'+m : m; day = day < 10 ? '0'+day : day; month = month < 10 ? '0'+month : month;
             clock.innerHTML = `${h}:${m} ${ampm}<br>${day}/${month}/${year}`;
         }
         setInterval(updateClock, 1000); updateClock();
-
-        /* 🔒 BÙA BẢO MẬT: Chặn F12, Chuột phải, Xem nguồn (Ctrl+U), Lưu trang (Ctrl+S) và Tuyệt đối KHÔNG CHO COPY (Chặn Ctrl+C, Ctrl+A) */
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => {
             let k = e.key.toLowerCase();
-            if (e.key === 'F12' || (e.ctrlKey && (k === 'u' || k === 's' || k === 'c' || k === 'a')) || (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j' || k === 'c'))) {
-                e.preventDefault();
-            }
+            if (e.key === 'F12' || (e.ctrlKey && (k === 'u' || k === 's' || k === 'c' || k === 'a')) || (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j' || k === 'c'))) e.preventDefault();
         });
     </script>
 </body>
