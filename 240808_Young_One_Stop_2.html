@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>📂 Folder: Youngpil 📂</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --main-font: 'DotGothic16', sans-serif; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--main-font); background-color: #f7e6f3; color: #000; padding-bottom: 80px; transition: font-family 0.2s ease; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
         .top-nav { background-color: #df9be4; padding: 10px 20px; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; }
-        .nav-links a { color: #000; text-decoration: none; }
-        .nav-links a:hover { text-decoration: underline; }
+        .nav-links a { color: #000; text-decoration: none; } .nav-links a:hover { text-decoration: underline; }
         .header-logo { text-align: center; padding: 30px 10px; font-size: 32px; text-shadow: 2px 2px 0px #df9be4; }
         .main-container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         .btn-back { display: inline-block; background: #e0e0e0; border: 2px solid #000; box-shadow: 2px 2px 0px #000; padding: 6px 12px; font-family: inherit; font-size: 13px; font-weight: bold; color: #000; text-decoration: none; margin-bottom: 20px; cursor: pointer; }
@@ -20,108 +18,89 @@
         .window { background: #ffffff; border: 2px solid #000; box-shadow: 4px 4px 0px #000; margin-bottom: 20px; }
         .window-header { background: #c3b1e1; border-bottom: 2px solid #000; padding: 6px 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
         .window-controls span { border: 1px solid #000; background: #ffffff; padding: 0 4px; font-size: 10px; cursor: pointer; }
-        .window-body { padding: 25px; }
+        .window-body { padding: 25px; font-size: 16px; }
         .post-meta-wrapper { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #555; margin-bottom: 12px; flex-wrap: wrap; }
         .tag-pill { display: inline-flex; align-items: center; gap: 4px; padding: 4px 15px; font-size: 13px; font-weight: bold; border: 2px solid #000; border-radius: 20px; box-shadow: 2px 2px 0px #000; color: #000; background-color: #fbc6e3; }
         .meta-dot { color: #555; font-weight: bold; }
-        .post-content { font-size: 16px; line-height: 1.8; text-align: justify; }
-        .post-content p { margin-bottom: 15px; }
+        .post-content { font-size: inherit; line-height: 1.8; text-align: justify; } .post-content p { margin-bottom: 15px; }
         .divider { border: none; border-top: 2px dashed #df9be4; margin-bottom: 20px; }
         .taskbar { position: fixed; bottom: 0; left: 0; width: 100%; height: 40px; background: #d4d0c8; border-top: 2px solid #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 15px; z-index: 9999; box-shadow: 0 -2px 0px #808080; }
-        .start-button { background: #d4d0c8; border: 2px solid; border-color: #fff #555 #555 #fff; padding: 2px 8px; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; }
-        .start-button:active { border-color: #555 #fff #fff #555; }
+        .start-button { background: #d4d0c8; border: 2px solid; border-color: #fff #555 #555 #fff; padding: 2px 8px; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 5px; cursor: pointer; } .start-button:active { border-color: #555 #fff #fff #555; }
         .taskbar-right { display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: bold; }
         .font-selector { background: #fff; border: 2px solid #000; font-family: 'Courier New', Courier, monospace; font-size: 12px; padding: 1px 5px; cursor: pointer; outline: none; font-weight: bold; }
         .systray-time { background: #d4d0c8; border: 2px solid; border-color: #555 #fff #fff #555; padding: 2px 8px; font-size: 11px; text-align: center; line-height: 1.2; }
-        .ellipsus-stop { text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 10px; color: #000; text-transform: uppercase; }
-        .ellipsus-location { text-align: right; font-size: 18px; font-style: italic; font-weight: bold; margin-bottom: 25px; color: #000; text-transform: uppercase; }
-        
-        /* CSS CỦA NÚT ĐIỀU HƯỚNG QUAY LẠI LỀ TRÁI */
-        .nav-stop-container { display: flex; justify-content: flex-start; margin-top: 30px; border-top: 2px dashed #df9be4; padding-top: 20px; }
-        .btn-prev-stop { display: inline-block; background: #e0e0e0; border: 2px solid #000; box-shadow: 2px 2px 0px #000; padding: 6px 16px; font-family: inherit; font-size: 13px; font-weight: bold; color: #000; text-decoration: none; cursor: pointer; }
-        .btn-prev-stop:active { box-shadow: 0px 0px 0px #000; transform: translate(2px, 2px); }
+        .ellipsus-stop { text-align: center; font-size: 1.25em; font-weight: bold; margin-bottom: 10px; color: #000; text-transform: uppercase; }
+        .ellipsus-location { text-align: right; font-size: 1.125em; font-style: italic; font-weight: bold; margin-bottom: 25px; color: #000; text-transform: uppercase; }
+        .navigation-buttons-container { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; border-top: 2px dashed #df9be4; padding-top: 20px; }
+        .nav-left { flex: 1; display: flex; justify-content: flex-start; } .nav-center { flex: 1; display: flex; justify-content: center; } .nav-right { flex: 1; display: flex; justify-content: flex-end; }
+        .btn-retro-nav { display: inline-block; background: #e0e0e0; border: 2px solid #000; box-shadow: 2px 2px 0px #000; padding: 6px 16px; font-family: inherit; font-size: 13px; font-weight: bold; color: #000; text-decoration: none; cursor: pointer; }
+        .btn-retro-nav:active { box-shadow: 0px 0px 0px #000; transform: translate(2px, 2px); }
+        .size-slider-container { display: flex; align-items: center; background: #d4d0c8; border: 2px solid; border-color: #555 #fff #fff #555; padding: 2px 6px; gap: 6px; font-family: 'Courier New', Courier, monospace; font-weight: bold; }
+        .size-slider-container .small-a { font-size: 11px; } .size-slider-container .large-a { font-size: 16px; }
+        .retro-slider { -webkit-appearance: none; appearance: none; width: 70px; height: 6px; background: #fff; border: 1px solid #000; outline: none; }
+        .retro-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #ff00b3; border: 1px solid #000; cursor: pointer; }
+        .retro-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #ff00b3; border: 1px solid #000; cursor: pointer; }
     </style>
 </head>
 <body>
-
     <div class="top-nav">
         <div class="nav-links"><a href="index.html">TRANG CHỦ</a></div>
         <div><span>WELCOME TO LTQ'S HOUSE</span></div>
     </div>
-
     <div class="header-logo">👾 ltq.myday 👾</div>
-
     <div class="main-container">
         <a href="javascript:history.back()" class="btn-back"> &lt; youngpil.exe </a>
-
         <div class="window">
-            <div class="window-header">
-                <span>Young_One_Stop_2.txt</span>
-                <div class="window-controls"><span>X</span></div>
-            </div>
-            <div class="window-body">
+            <div class="window-header"><span>Young_One_Stop_2.txt</span><div class="window-controls"><span>X</span></div></div>
+            <div class="window-body" id="text-window-body">
                 <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">YOUNG ONE ITINERARY</h1>
-                
                 <div class="post-meta-wrapper">
-                    <div class="tag-pill"><span>Essay</span></div>
-                    <span class="meta-dot">•</span>
-                    <span>Người dịch: LTQ</span>
+                    <div class="tag-pill"><span>Essay</span></div><span class="meta-dot">•</span><span>Người dịch: LTQ</span>
                 </div>
-
                 <div class="divider"></div>
-
                 <div class="post-content">
-                    <div class="ellipsus-stop">STOP 2: METRO TOUR</div>
-                    <div class="ellipsus-location">HONGIK UNIV.</div>
-                    
+                    <div class="ellipsus-stop">STOP 2: METRO TOUR</div><div class="ellipsus-location">HONGIK UNIV.</div>
                     <p>Cuối cùng thì một vị khách mời đáng quý đã đến. Vị khách ấy cũng đã xuất hiện trong cuốn Photo Essay đầu tiên. Được hát cùng Wonpil-nim quả thật là một niềm vinh hạnh. Như mình đã nói trước đó, mình vẫn chọn bài hát từ danh sách những bài mà các khách mời muốn hát. Trước hết thì Wonpil nói rằng em muốn hát một ca khúc thật tươi sáng và bối cảnh cũng tươi sáng cho nên bọn mình đã chuẩn bị mọi thứ theo đó. Bài mà Wonpil đã chọn là 'Last Call', một bài hát tràn đầy không khí vui tươi. Bọn mình ngay lập tức nghĩ rằng nên hát phần điệp khúc cùng nhau, và lúc chia phần để hát bọn mình cũng quyết rất nhanh mà không gặp phải khó khăn gì. Mình đã nói rất nhiều về ưu điểm giọng hát của Wonpil rồi, nhưng mình nghĩ màu giọng của em là ưu điểm lớn nhất. Giọng của em tuy mỏng và thanh nhưng cũng rất khỏe khoắn và cuốn hút. Và Wonpil có một thứ mà mình không có, đó là đối với những ca khúc buồn thì em có thể thể hiện nỗi buồn một cách đậm nét và hòa mình vào làm một với bài hát. Tuy nhiên, so với khi làm việc cùng với các nghệ sĩ khác ở mùa 2 thì mình nghĩ là mình ít chịu ảnh hưởng và thay đổi hơn khi làm việc với Wonpil bởi vì bọn mình rất thân nhau và đã hát cùng nhau lâu dài rồi. So với các video trước thì lần này mình cảm thấy rất thoải mái khi có thể tận hưởng việc hát, và nếu có mắc lỗi thì làm lại, không sao hết, nếu muốn cười thì cười cũng được.</p>
                     <p><strong><i>Mình nghĩ cảm giác thật sự thoải mái là một điều vô cùng đáng quý.</i></strong></p>
                     <p>Địa điểm quay là một tiệm đĩa than do người quen của anh Kwanghoon sở hữu. Nhưng mình cảm thấy nơi đây như một tiệm bán tạp hóa hơn là cả một tiệm đĩa. Mặc dù ở tầng hầm nhưng tiệm rất sáng và có một tông màu vô cùng tươi tắn. Mình rất ấn tượng với mùi hương từ nhang, và hẳn là bọn mình đã bắt đầu quay với khói nhang ở sau lưng.</p>
                     <p><strong><i>Nhìn cái cách mà không khí thay đổi tùy thuộc vào cách ghi hình dù ở trong cùng một không gian trông rất thú vị.</i></strong></p>
                     <p>Sự thật là có một chiếc máy nhắc chữ đã được chuẩn bị ở phía sau máy quay nhưng trên đó không có lời nhạc, vậy nên trong lúc ghi hình mà bọn mình cứ cười mãi. À, và Kiyoon cũng đã tự mang cuốn Photo Essay đầu tiên đến và nhờ mình ký, nhưng mình đã chuẩn bị sẵn một bản cho cậu ấy rồi. Cảm giác vô cùng tốt đẹp từ khi bước vào cửa tiệm cho đến khi ghi hình và thu dọn đồ đạc xong. Trong tiệm có bật một bài hát rất hay nên mình đã hỏi xem bài hát đó là từ album nào thì album đó là album mà chủ tiệm sở hữu. Mình đã nghe được tên của nghệ sĩ đó rồi nhưng vừa bước ra khỏi cửa tiệm cái là quên béng luôn. Đáng lẽ ra mình nên ghi lại ở đâu đó mới phải.</p>
-
-                    <div class="nav-stop-container">
-                        <a href="230920_Young_One_Stop_1.html" class="btn-prev-stop">&lt; PREVIOUS STOP</a>
+                    <div class="navigation-buttons-container">
+                        <div class="nav-left"><a href="230920_Young_One_Stop_1.html" class="btn-retro-nav">&lt; PREVIOUS STOP</a></div>
+                        <div class="nav-center"><a href="https://youtu.be/QGWXunn0UMw?si=zrkNQqJRJOIY6YRG" target="_blank" class="btn-retro-nav">📺 YOUTUBE</a></div>
+                        <div class="nav-right"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="taskbar">
         <div class="start-button" onclick="location.href='index.html'"><span>🛸</span><span>START</span></div>
         <div class="taskbar-right">
             <select id="font-select" class="font-selector">
-                <option value="'DotGothic16', sans-serif">DotGothic16</option>
-                <option value="'VT323', monospace">VT323</option>
-                <option value="'Courier New', Courier, monospace">Courier New</option>
-                <option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
+                <option value="'DotGothic16', sans-serif">DotGothic16</option><option value="'VT323', monospace">VT323</option>
+                <option value="'Courier New', Courier, monospace">Courier New</option><option value="'Be Vietnam Pro', sans-serif">Be Vietnam Pro</option>
             </select>
+            <div class="size-slider-container">
+                <span class="small-a">A</span><input type="range" id="size-slider" class="retro-slider" min="13" max="24" value="16"><span class="large-a">A</span>
+            </div>
             <div class="systray-time" id="clock">00:00 AM<br>01/01/2026</div>
         </div>
     </div>
-
     <script>
-        const fontSelect = document.getElementById('font-select'), clock = document.getElementById('clock');
+        const fontSelect = document.getElementById('font-select'), clock = document.getElementById('clock'), sizeSlider = document.getElementById('size-slider'), windowBody = document.getElementById('text-window-body');
         fontSelect.addEventListener('change', e => document.body.style.setProperty('--main-font', e.target.value));
-
+        sizeSlider.addEventListener('input', e => windowBody.style.fontSize = e.target.value + 'px');
         function updateClock() {
-            const now = new Date();
-            let h = now.getHours(), m = now.getMinutes(), ampm = h >= 12 ? 'PM' : 'AM';
-            let day = now.getDate(), month = now.getMonth() + 1, year = now.getFullYear();
-            h = h % 12; h = h ? h : 12; m = m < 10 ? '0'+m : m;
-            day = day < 10 ? '0'+day : day; month = month < 10 ? '0'+month : month;
+            const now = new Date(); let h = now.getHours(), m = now.getMinutes(), ampm = h >= 12 ? 'PM' : 'AM', day = now.getDate(), month = now.getMonth() + 1, year = now.getFullYear();
+            h = h % 12; h = h ? h : 12; m = m < 10 ? '0'+m : m; day = day < 10 ? '0'+day : day; month = month < 10 ? '0'+month : month;
             clock.innerHTML = `${h}:${m} ${ampm}<br>${day}/${month}/${year}`;
         }
         setInterval(updateClock, 1000); updateClock();
-
-        /* 🔒 BÙA BẢO MẬT: Chặn F12, Chuột phải, Xem nguồn (Ctrl+U), Lưu trang (Ctrl+S) và Tuyệt đối KHÔNG CHO COPY (Chặn Ctrl+C, Ctrl+A) */
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => {
             let k = e.key.toLowerCase();
-            if (e.key === 'F12' || (e.ctrlKey && (k === 'u' || k === 's' || k === 'c' || k === 'a')) || (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j' || k === 'c'))) {
-                e.preventDefault();
-            }
+            if (e.key === 'F12' || (e.ctrlKey && (k === 'u' || k === 's' || k === 'c' || k === 'a')) || (e.ctrlKey && e.shiftKey && (k === 'i' || k === 'j' || k === 'c'))) e.preventDefault();
         });
     </script>
 </body>
